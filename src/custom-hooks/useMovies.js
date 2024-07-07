@@ -15,7 +15,7 @@ export default function useMovies(search){
               setError("");
               setIsLoading(true);
               const res = await fetch(
-                `http://www.omdbapi.com/?apikey=${KEY}&s=${search}`,
+                `https://www.omdbapi.com/?apikey=${KEY}&s=${search}`,
                 { signal: controller.signal }
               );
     
