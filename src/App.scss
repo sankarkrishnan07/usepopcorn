@@ -1,0 +1,302 @@
+:root {
+  --color-primary: #6741d9;
+  --color-primary-light: #7950f2;
+  --color-text: #dee2e6;
+  --color-text-dark: #adb5bd;
+  --color-background-100: #343a40;
+  --color-background-500: #2b3035;
+  --color-background-900: #212529;
+  --color-red: #fa5252;
+  --color-red-dark: #e03131;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+
+  color: var(--color-text);
+  background-color: var(--color-background-900);
+  padding: 2.4rem;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  &-logo {
+    font-size: 2.5rem;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-primary);
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.search {
+  &-box {
+    background-color: var(--color-primary-light);
+    min-height: 3.5rem;
+    min-width: 35rem;
+    border-radius: 5px;
+    border: none;
+    padding: 1rem;
+    color: var(--color-text);
+    outline: none;
+    // box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+
+    &:focus{
+      box-shadow: 0 80px 80px rgba(0, 0, 0, 0.1);
+      outline: 2px solid var(--color-text);
+    }
+
+    &::placeholder {
+      color: var(--color-text-dark);
+    }
+  }
+
+  &-results {
+    font-family: inherit;
+    font-size: 1.5rem;
+  }
+}
+
+.movie-details {
+  min-height: 80vh;
+  width: 40rem;
+  background-color: var(--color-background-500);
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+
+  .btn {
+    background-color: var(--color-background-900);
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    border: none;
+    color: var(--color-text);
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    z-index: 1;
+  }
+}
+
+.main {
+  width: 100%;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.movie {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 70%;
+  &__wrap {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    min-height: 7.8rem;
+    align-items: center;
+    padding: 0.25rem 3rem;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgb(48, 6, 6);
+    cursor: pointer;
+    position: relative;
+  }
+
+  &-img {
+    height: 5rem;
+    width: 3.5rem;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__full {
+    &-wrap {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      padding: 2rem 0;
+      img {
+        height: 20rem;
+        width: 40%;
+      }
+    }
+    &-details {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      font-size: 1.3rem;
+
+      .movie-name {
+        font-size: 2.5rem;
+      }
+    }
+    &-plot {
+      font-size: 1.25rem;
+      font-style: italic;
+      padding: 3rem;
+      padding-top: 0;
+    }
+  }
+
+  &__add-watched {
+    background-color: var(--color-background-900);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 1rem;
+    border-radius: 10px;
+    min-height: 4rem;
+    justify-content: center;
+
+    .movie-rated {
+      font-size: 1.5rem;
+    }
+
+    .btn__add-watched {
+      border: none;
+      padding: 1rem;
+      background-color: var(--color-primary);
+      color: var(--color-text);
+      margin: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  }
+}
+
+.watched-movies__summary {
+  background-color: var(--color-background-100);
+  padding: 2rem 2rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  box-shadow: 0 5px 20px 1px var(--color-background-900);
+
+  &-title {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+  }
+
+  &-det {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.2rem;
+  }
+}
+
+.error,
+.loader {
+  font-size: 2rem;
+  text-align: center;
+  padding: 3rem;
+  color: var(--color-red-dark);
+}
+
+.loader {
+  color: var(--color-text-dark);
+}
+
+.movie-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  position: relative;
+
+  .return-back {
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    top: 2rem;
+    padding: 1rem;
+    font-size: 2rem;
+    height: 4rem;
+    width: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.25rem;
+    cursor: pointer;
+  }
+}
+
+.del-watched {
+  position: absolute;
+  height: 2rem;
+  width: 2rem;
+  background-color: var(--color-red-dark);
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  cursor: pointer;
+  top: 37.5%;
+  right: 7.5%;
+  z-index: 2;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
